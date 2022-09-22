@@ -9,21 +9,38 @@
 </head>
 
 <body>
-  <div>
-    <h1>Quiz Game!!!</h1>
-  </div>
+  <header>
+    <p class = "timer">Time <span id="time"> 0</span></p>
+  </header>
 
-  <main>
-    <h2>Quiz Challenge</h2>
+  <main class="container">
+    <div id = "home" class = "home-page"></div>
+    <h1>Quiz Challenge</h1>
     <p>
       Try your best to answer these questions within 60 seconds.
     </p>
     <div>
-      <button id="submitButton" class="btn active" type="button">Start Game
+      <button id="startGame" class="btn active" type="button">Start Game
       </button>
     </div>
+    
+    <div id="question" class="hidden">
+      <h2 id="q-topic"></h2>
+      <div id="options" class="options"></div>
+  </div>
+
+  <div id="quiz-end" class="hidden">
+      <h2>Done!</h2>
+      <p>Your final score is <span id="score"></span>!</p>
+      <p>Type your initials: <input type="text" id="initials"/>
+          <button id="submit">Submit</button>
+      </p>
+  </div>
+    
   </main>
   
+
+
 
 <script src="script.js"></script>
 
