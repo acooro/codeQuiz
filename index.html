@@ -10,7 +10,7 @@
 
 <body>
   <header>
-    <p class = "timer">Time <span id="time"> 0</span></p>
+    <p class = "timer">Time <span id="time">0</span></p>
   </header>
 
   <main class="container">
@@ -20,10 +20,9 @@
       Try your best to answer these questions within 60 seconds.
     </p>
     <div>
-      <button id="startGame" class="btn active" type="button">Start Game
-      </button>
+      <button id="start">Start Game</button>
     </div>
-    
+
     <div id="question" class="hidden">
       <h2 id="q-topic"></h2>
       <div id="options" class="options"></div>
@@ -36,13 +35,11 @@
           <button id="submit">Submit</button>
       </p>
   </div>
+
+  <div id="comments" class="comments hidden"></div>
     
   </main>
-  
-
-
-
-<script src="script.js"></script>
+<script src="./assests/scripts.js"></script>
 
 </body>
 </html>

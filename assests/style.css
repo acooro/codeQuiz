@@ -1,46 +1,114 @@
-
-* {
+*{
   box-sizing: border-box;
-  margin: 0px;
-  padding: 0px;
-  font-family: "Josefin Sans", sans-serif;
-  
+  margin: 0;
+  padding:0;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-.body {
-  text-align: center;
-  
+a {
+  color:#ffffff;
+  transition: color .2s;
 }
 
-h1 {
-  text-align: center;
-  padding-top: 150px;
-  font-weight: bold;
-  font-size: 40px;
-  font-weight: bolder;
+a:hover{
+  color: #0055ff;
 }
 
-
-h2 {
-  text-align: center;
-  padding-top: 150px;
-  font-weight: bold;
-  font-size: 40px;
-  font-weight: bolder;
+.high {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  font-size: 28px;
 }
 
+.timer {
+  position: absolute;
+  top: 13px;
+  right: 14px;
+  font-size: 28px;
+}
 
-p {
+.container{
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  margin: 100px auto 0 auto;
   padding: 20px;
-  font-size: 20px;
+  font-size: 125%;
+}
+
+.home-screen{
   text-align: center;
+}
+
+.home-screen h1 {
+  font-size: 300%;
+}
+
+.home-screen p {
+  font-size: 150%;
 }
 
 button {
-  justify-content: center;
-  text-align: center ;
-  background-color: #07020e;
-  color: white;
-  font-size: 22px;
-  padding: 12px;
- }
+  font-family: 'comic sans ms';
+  margin: 7px;
+  font-weight: bold;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 30px;
+  padding: 5px 13px;
+  border-radius: 13px;
+  border: 2px solid #e00000;
+  background-color: #000000;
+  transition: background-color .15s;
+  display: inline-block;
+}
+
+button:hover {
+  color: #ffffff;
+  background: #000000;
+}
+
+.hidden{
+  display:none;
+}
+
+.options {
+  display: block;
+}  
+
+input {
+  font-size: 100%;
+}
+
+.comments {
+  font-style: italic;
+  font:bold;
+  font-size: xx-large;
+  padding-top: 10px;
+  color: rgb(22, 22, 23);
+  border-top: 3px solid #707177 ;
+  margin-top: 25px;
+}
+
+.h-score{
+  margin-top: 15px;
+  padding-top: 0;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+ol {
+  padding-left: 0.5px;
+  max-height: 390px;
+  overflow: auto;
+  font-size: 27px;
+} 
+
+li {
+  padding: 6px;
+  background-color: none;
+}
+
+
