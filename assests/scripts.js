@@ -1,40 +1,68 @@
 //variables
 var currentQ = 0
-var time= 60
+var time= 30
 var timer
 
-var homePage = document.querySelector("#home")
+var homeScreen = document.querySelector("#home")
 var questionsEl = document.querySelector("#question")
 var timeO = document.querySelector("#time")
 var options = document.querySelector("#options")
 var submit = document.querySelector("#submit")
 var quizStart = document.querySelector ("#start")
+var currentScore = 0
+var finalScore
+var highScoreArr = []
+var timeInterval
 
 var comments = document.querySelector("#comments");
 
 //questions and answer 
 var questions = [
   {
-    q:"What is an even number?",
-    choices: ["1", "5", "3","4"],
-    answer: "4",
+    q:"Which mammal is known to have the most powerful bite in the world?",
+    choices: ["Lion", "Shark", "Hippo","Human"],
+    answer: "Hippo",
   },
 
   {
-    q:"What is an even number?",
-    choices: ["1", "5", "3","4"],
-    answer: "4",
+    q:"Which country was split into two zones by the Yalta agreement?",
+    choices: ["Germany", "Virginia", "Dakota","Korea"],
+    answer: "Germany",
+  },
+
+  {
+    q:"In the movie Finding Nemo, who was Marlin's wife?",
+    choices: ["Daisy", "Flounder", "Flower","Coral"],
+    answer: "Coral",
+  },
+
+  {
+    q:"What is the perfect score in a game of Ten Pin Bowling",
+    choices: ["150", "200", "250","300"],
+    answer: "300",
+  },
+
+  {
+    q:"What is the full name of the rapper Puff Daddy?",
+    choices: ["Sean John Combs", "Alexander Zinc", "Davis Ember","Ron Father Jr"],
+    answer: "Sean John Combs",
   }
 ]
 
 
-var highscore = JSON.parse(window.localStorage.getItem("highscore")) || [];
 
 function beginQuiz() {
-  homePage.setAttribute("class", "hidden");
+  homeScreen.setAttribute("class", "hidden");
   questionsEl.removeAttribute("class");
 
-  timer = setInterval(clock, 1000);
+  timeInterval = setInterval(function(){
+    time--;
+    timeO.textContent = time;
+    if(time === 0){
+      clearInterval(timeInterval)
+      timeO.textContent = "Time's UP"
+    }
+  },1000);
 
   getQuestion();
 }
@@ -42,7 +70,7 @@ function beginQuiz() {
 function getQuestion() {
   var nowQuestion = questions[currentQ];
   var questionTopic = document.getElementById("q-topic");
-  questionTopic.textContent = nowQuestion.quest;
+  questionTopic.textContent = nowQuestion.q;
 
   options.innerHTML = "";
 
@@ -62,13 +90,9 @@ function getQuestion() {
 function AnswerValid() {
   if (this.value == questions[currentQ].answer) {
     comments.textContent = "Correct!";
-
-    if (time < 0) {
-      time = 0;
-    }
-
-    timeO.textContent = time;
-    comments.textContent = "Wrong!";
+    currentScore ++;
+    
+  }else {comments.textContent = "Wrong!";
   }
 
   comments.setAttribute("class", "comments");
@@ -77,6 +101,8 @@ function AnswerValid() {
   }, 1000);
 
   currentQ++;
+
+  console.log (currentQ)
 
   if (currentQ === questions.length) {
     endQuiz();
@@ -92,44 +118,11 @@ function endQuiz() {
   endGame.removeAttribute("class");
 
   var gameScore = document.querySelector("#score");
-  gameScore.textContent = time;
+  gameScore.textContent = currentScore;
 
   questionsEl.setAttribute("class", "hidden");
 }
 
-function clock() {
-  time--;
-  timeO.textContent = time;
-
-  if (time <= 0) {
-    endQuiz();
-  }
-}
-
-function saveScore() {
-  var initials = document.querySelector("#initials").value.trim();
-
-  if (initials !== "") {
-    var newScore = {
-      score: time,
-      initials: initials,
-    };
-    highscore.push(newScore);
-    window.localStorage.setItem("highscore", JSON.stringify(highscore));
-    window.location.href = "highscore.html";
-  }
-}
-
-function verifyEnter(event) {
-  if (event?.key === "Enter") {
-    saveScore();
-  }
-}
-
-submit.addEventListener("click", saveScore);
 
 quizStart.addEventListener("click", beginQuiz);
 
-onkeydown = function () {
-  verifyEnter();
-};
