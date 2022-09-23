@@ -26,4 +26,8 @@ WHEN the game is over
 THEN I can save my initials and my score
 ```
 
+
+![image](https://user-images.githubusercontent.com/112712707/191893638-6e43739b-e35b-45df-ba5c-48698343ee6f.png)
+
+
 link to site: https://acooro.github.io/codeQuiz/
